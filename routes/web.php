@@ -67,3 +67,4 @@ Route::group(['prefix' => 'admin'],function(){
 
 //////////////user routes/////////
 Route::post('/user/subscribe', [UserController::class,'Subscribe'])->name('subscribe.book')->middleware(['auth']);
+Route::get('/user/subscribe/list', [UserController::class,'SubscribeList'])->name('subscription.list')->middleware(['auth']);

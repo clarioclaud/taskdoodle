@@ -25,6 +25,7 @@
                                   <th>ID</th>
                                   <th>Name</th>
                                   <th>Book Name</th>
+                                  <th>Book Image</th>
                                   <th>Subscribed At</th>
                                   <th>Expired At</th>                                 
                               </tr>
@@ -38,6 +39,7 @@
                                   <td>{{ $i++ }}</td>
                                   <td>{{ $user->user->name }}</td>
                                   <td>{{ $user->book->name }}</td>
+                                  <td><img src="{{ asset($user->book->image) }}" width="70px" height="70px"></td>
                                   <td>{{ Carbon\Carbon::parse($user->created_at)->format('d F Y') }}</td>
                                   <td>
                                      @if($user->expired_at < Carbon\Carbon::now()) 

@@ -51,4 +51,10 @@ class UserController extends Controller
 
         return redirect()->back()->with('error','Subscribed Successfully');
     }
+
+    public function SubscribeList()
+    {
+        $subs = Subscription::where('user_id',Auth::user()->id)->latest()->get();
+        return view('frontend.subscriptionlist',compact('subs'));
+    }
 }
