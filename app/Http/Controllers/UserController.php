@@ -45,7 +45,7 @@ class UserController extends Controller
         $sub = Subscription::insert([
             'user_id' => Auth::user()->id,
             'book_id' => $request->book_id,
-            'expired_at' => Carbon::now()->addMonth(),
+            'expired_at' => Carbon::now()->addMonth()->format('Y-m-d'),
             'created_at' => Carbon::now()
         ]);
 

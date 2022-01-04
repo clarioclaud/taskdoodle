@@ -52,7 +52,7 @@
             @if(empty($sub))
             <button type="submit" class="btn btn-danger" name="submit">Subscribe</button>
             @else
-              @if($sub->expired_at < Carbon\Carbon::now())
+              @if($sub->expired_at < Carbon\Carbon::now()->format('Y-m-d'))
               <button type="submit" class="btn btn-danger" name="submit">Subscribe</button>
               @else
               <button type="submit" class="btn btn-success" name="submit" disabled="">Subscribed</button>

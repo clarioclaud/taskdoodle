@@ -6,6 +6,20 @@
       <!-- table area -->
       <section class="table_area">
           <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-4">
+                    <form action="{{ route('book.bulk') }}" method="post" enctype="multipart/form-data">
+                            @csrf                            
+                            <div class="form-group">
+                                <label for="file">Bulk Upload (CSV file)</label>
+                                <input type="file" name="file" id="file" class="form-control" required>
+                            </div>
+                            <button type="submit" name="create" class="btn btn-success btn-sm">Upload</button>
+                    </form>
+              </div>
+              <div class="col-md-5"></div><br>
+           </div>
+           <div class="row">
               <div class="col-md-8">
                 <div class="panel">
                     <div class="panel_header">

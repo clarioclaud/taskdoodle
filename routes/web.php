@@ -62,6 +62,7 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('/books/update', [BookController::class,'BookUpdate'])->name('book.update')->middleware('admin');
     Route::get('/book/delete/{id}', [BookController::class,'BookDelete'])->name('book.delete')->middleware('admin');
     Route::get('/book/status/{id}', [BookController::class,'BookStatus'])->name('book.status')->middleware('admin');
+    Route::post('/books/bulk', [BookController::class,'BookBulk'])->name('book.bulk')->middleware('admin');
     Route::get('/subscription', [BookController::class,'Subscription'])->name('admin.subscription')->middleware('admin');
 });
 

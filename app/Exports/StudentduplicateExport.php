@@ -31,6 +31,7 @@ class StudentduplicateExport implements FromCollection,withHeadings
 
     public function collection()
     {
-        return Student::all();
+        $ids = Student::groupBy('id')->pluck('regid')->all();
+		return Student::whereNotIn('regid',$ids)->get();
     }
 }

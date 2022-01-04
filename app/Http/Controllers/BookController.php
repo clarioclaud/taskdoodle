@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use Carbon\Carbon;
 use App\Models\Subscription;
+use App\Imports\BookImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookController extends Controller
 {
@@ -86,6 +88,12 @@ class BookController extends Controller
             return redirect()->back()->with('error','Book Status changed Successfully');
         }
         
+    }
+
+    public function BookBulk(Request $request)
+    {
+        Excel::import(new BookImport, request()->file('file'));
+        return redirect()->back()->with('error','Imported Successfully');
     }
 
     public function Subscription()
